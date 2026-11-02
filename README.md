@@ -2,7 +2,7 @@
 
 > CentraleSupélec · AI track · Client: **Iris by Argon & Co** (data & AI team of a consulting firm), on behalf of a global luxury house · Sep 2023 – Jan 2024 · Team of 5
 
-**TL;DR**: We forecast weekly sales per product and per country for a luxury group. The aim was to test whether an interpretable deep-learning model (Temporal Fusion Transformer) could outperform the client's decision-tree approach at weekly granularity. On the European scope, forecast accuracy (1 − WAPE) went from **~55% for a naive baseline to 85–90%**. The model outputs quantile forecasts, and a Power BI dashboard presents them to business users.
+ We forecast weekly sales per product and per country for a luxury group. The aim was to test whether an interpretable deep-learning model (Temporal Fusion Transformer) could outperform the client's decision-tree approach at weekly granularity. On the European scope, forecast accuracy (1 − WAPE) went from **~55% for a naive baseline to 85–90%**. 
 
 > Code and data are not published: the client's sales data is confidential.
 
@@ -32,8 +32,6 @@ flowchart LR
     B --> C["Zero-filling missing weeks<br/>from each SKU's launch date per country"]
     C --> D["Feature engineering<br/>cyclical week, price, product attributes"]
     D --> E["Temporal Fusion Transformer<br/>PyTorch Forecasting & Darts"]
-    E --> F["Quantile forecasts<br/>P10 / P50 / P90"]
-    F --> G["Power BI dashboard"]
 ```
 
 1. **Data cleaning.** We set filtering rules on history length and regularity: at least 104 weekly observations and at least 33 sales per year. Without them, sparse SKUs pulled all forecasts towards zero. Missing weeks were zero-filled from each SKU's launch date in each country, a choice validated with the client. A generic pandas fill was not enough, because every SKU × country pair has its own launch date.
@@ -72,13 +70,12 @@ flowchart LR
 ## My contribution
 
 - Data exploration, preprocessing and data augmentation (filtering rules, zero-filling pipeline)
-- Hyper-parameter experiments and exploration of a daily-frequency model
-- **Power BI dashboard**: actual vs. predicted sales with quantile bands, filterable by country, product and year
+- Hyper-parameter optimisation and exploration of a daily-frequency model
 - Market-trend analysis, client report and final presentation
 
 ## Stack
 
-`Python` · `pandas` · `PyTorch` · `PyTorch Lightning` · `PyTorch Forecasting` · `Darts` · `TensorBoard` · `Power BI` · `Git`
+`Python` · `pandas` · `PyTorch` · `PyTorch Lightning` · `PyTorch Forecasting` · `Darts` · `Git`
 
 ## References
 
