@@ -1,6 +1,6 @@
 # Weekly Demand Forecasting for a Luxury Group with Temporal Fusion Transformers
 
-> CentraleSupélec · AI track · Client: **Iris by Argon & Co** (data & AI team of a consulting firm), on behalf of a global luxury house · Sep 2023 – Jan 2024 · Team of 5
+> CentraleSupélec · AI track · Client: data & AI team of a consulting firm, on behalf of a global luxury house · Sep 2023 – Jan 2024 · Team of 5
 
  We forecast weekly sales per product and per country for a luxury group. The aim was to test whether an interpretable deep-learning model (Temporal Fusion Transformer) could outperform the client's decision-tree approach at weekly granularity. On the European scope, forecast accuracy (1 − WAPE) went from **~55% for a naive baseline to 85–90%**. 
 
